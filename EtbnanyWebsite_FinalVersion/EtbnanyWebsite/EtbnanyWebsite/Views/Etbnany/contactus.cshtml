@@ -1,0 +1,113 @@
+﻿
+@model EtbnanyWebsite.Models.User
+
+@{
+    ViewBag.Title = "contactus";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etbanany - Contact Us</title>
+    <link rel="icon" href="~/Content/images/dog.png" type="image/x-icon">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="~/Content/home.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group textarea {
+                height: 120px;
+            }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        #profile,#logout {
+            color: #fff;
+            text-decoration: none;
+            float: right;
+            padding-top: 25px;
+            padding-right: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        #title {
+            display: inline-block;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body style="font-size:17px">
+    <div class="header">
+        <h1 style="padding-left:125px;" id="title">Hi @Model.firstName, Welcome to Our Animal Shelter</h1>
+        <a id="logout" href="@Url.Action("signin", "Etbnany")">Logout</a>
+        <a id="profile" href="@Url.Action("profile", "Etbnany")">@Model.firstName <i class='bx bxs-user'></i></a>
+    </div>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="@Url.Action("home", "Etbnany")">Homepage</a></li>
+            <li><a href="@Url.Action("aboutus", "Etbnany")">About Us</a></li>
+            <li><a href="@Url.Action("adoption", "Etbnany")">Adoption</a></li>
+            <li><a href="@Url.Action("donation", "Etbnany")">Donations</a></li>
+            <li><a href="@Url.Action("contactus", "Etbnany")">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="content" style="text-align:center">
+        <h2>Contact Us</h2>
+        <p style="font-size:18px;">Have any questions or enquiries? Feel free to reach out to us using the form below:</p>
+        <form id="contact-form" action="@Url.Action("contactus", "Etbnany")" method="post">
+            <div class="form-group">
+                <label for="message">Enquiry:</label>
+                <textarea id="message" name="message" maxlength="200" minlength="20" title="You should write between 20 and 200 characters" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#" target="_blank"><img src="~/Content/images/fb.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/twitter.png" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="trademarks">
+                All trademarks are the property of Etbanany Company.
+            </div>
+            <div class="copyright">
+                &copy; 2023 Etbanany. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

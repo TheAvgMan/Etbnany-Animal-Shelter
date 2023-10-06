@@ -1,0 +1,87 @@
+﻿
+@model EtbnanyWebsite.Models.User
+
+@{
+    ViewBag.Title = "signup";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etbanany</title>
+    <link rel="icon" href="~/Content/images/dog.png" type="image/x-icon">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link href="~/Content/sigin.css" rel="stylesheet" />
+    <style>
+        h2 {
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .input-box-name input {
+            width: 160px;
+            max-width: 900px;
+            height: 50px;
+            background: transparent;
+            outline: none;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: white;
+            display: inline;
+            padding: 20px 45px 20px 20px;
+            margin-right: 15px;
+            margin-top: 30px;
+        }
+
+        .input-box-name input::placeholder {
+            color: rgba(255,255,255,0.7);
+            padding: 30px 10px 10px 10px;
+        }
+        .name {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Welcome to Our Animal Shelter</h2>
+    <div class="wrapper">
+        <form action="@Url.Action("signup", "Etbnany")" method="post">
+            <h1>Sign Up</h1>
+            <div class="name">
+                <div class="input-box-name">
+                    <input type="text" name="firstName" value="" placeholder="First Name" pattern="[a-zA-Z]+" title="Only include letters" required />
+                </div>
+                <div class="input-box-name">
+                    <input type="text" name="lastName" value="" placeholder="Last Name" pattern="[a-zA-Z]+" title="Only include letters" required />
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="email" name="email" value="" placeholder="Email" required />
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" value="" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="number" name="phone" value="" placeholder="Mobile Number" min="01000000000" max="01299999999" title="Only 11 digits allowed starting with 010, 011, or 012" required />
+                <i class='bx glyphicon-earphone'></i>
+            </div>
+
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="register-link">
+                <p>Already have an account? <a href="@Url.Action("signin", "Etbnany")">&#8594; Sign in</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+

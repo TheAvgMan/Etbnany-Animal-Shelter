@@ -1,0 +1,146 @@
+﻿
+@model EtbnanyWebsite.Models.User
+
+@{
+    ViewBag.Title = "profile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etbanany</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="icon" href="~/Content/images/dog.png" type="image/x-icon">
+    <link href="~/Content/home.css" rel="stylesheet" />
+    <style>
+        #profile, #logout {
+            color: #fff;
+            text-decoration: none;
+            float: right;
+            padding-top: 25px;
+            padding-right: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        #title {
+            display: inline-block;
+        }
+
+        .donations-adoptions-container {
+
+        }
+
+        .donation-adoption {
+            height: 270px;
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: deepskyblue;
+            display: flex;
+            align-items: center;
+        }
+
+            .donation-adoption div {
+                flex-grow: 1;
+                text-align: center;
+            }
+
+            .donation-adoption img {
+                border-radius: 20px;
+            }
+
+    </style>
+</head>
+<body style="font-size:17px">
+    <div class="header">
+        <h1 style="padding-left:125px;" id="title">Hi @Model.firstName, Welcome to Our Animal Shelter</h1>
+        <a id="logout" href="@Url.Action("signin", "Etbnany")">Logout</a>
+        <a id="profile" href="#">@Model.firstName <i class='bx bxs-user'></i></a>
+    </div>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="@Url.Action("home", "Etbnany")">Homepage</a></li>
+            <li><a href="@Url.Action("aboutus", "Etbnany")">About Us</a></li>
+            <li><a href="@Url.Action("adoption", "Etbnany")">Adoption</a></li>
+            <li><a href="@Url.Action("donation", "Etbnany")">Donations</a></li>
+            <li><a href="@Url.Action("contactus", "Etbnany")">Contact Us</a></li>
+        </ul>
+    </div>
+    <section class="donations-adoptions-container">
+        <h2 style="text-align: center; margin: 30px 0;">Your Adoptions</h2>
+        @if (ViewBag.myPets == null)
+        {
+            <div class="donation-adoption">
+              
+                <h4>You Have No Adoptions Yet</h4>
+               
+            </div>
+        }
+        else
+        {
+            foreach (EtbnanyWebsite.Models.MyPets p in ViewBag.myPets)
+            {
+                <div class="donation-adoption">
+                    <img src="~/Content/images/@p.image" height="250px" alt="">
+                    <div>
+                        <h4>@p.name</h4>
+                        <p>Type : @p.type</p>
+                        <p>Age : @p.age</p>
+                        <p>Gender : @p.gender</p>
+                    </div>
+                </div>
+            }
+        }
+    </section>
+
+    <hr style="margin: 20px auto; width:80%; border: 1px solid black;"/>
+    
+    <section class="donations-adoptions-container">
+        <h2 style="text-align: center; margin: 30px 0;">Your Donations</h2>
+        @if (ViewBag.myProducts == null)
+        {
+            <div class="donation-adoption">
+
+               <h4>You Have No Donations Yet</h4>
+  
+            </div>
+        }
+        else
+        {
+            foreach (EtbnanyWebsite.Models.MyProducts p in ViewBag.myProducts)
+            {
+                <div class="donation-adoption">
+                    <img src="~/Content/images/@p.image" height="250px" alt="">
+                    <div>
+                        <h4>@p.name</h4>
+                        <p>Quantity Donated : @p.quantity</p>
+                        <p>Total Money Donated: $@p.total</p>
+                    </div>
+                </div>
+            }
+        }
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#" target="_blank"><img src="~/Content/images/fb.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/twitter.png" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="trademarks">
+                All trademarks are the property of Etbanany Company.
+            </div>
+            <div class="copyright">
+                &copy; 2023 Etbanany. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

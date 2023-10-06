@@ -1,0 +1,100 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+.clr {
+    clear: both;
+}
+
+/****/
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 17px;
+}
+
+/*start sec welcome*/
+.welcome {
+    height: 800px;
+    background-image: url(../img/cover/cover-1.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+    .welcome .text_welcome {
+        text-align: center;
+        width: 50%;
+        margin: 200px auto;
+        color: #fff;
+    }
+
+        .welcome .text_welcome h1 {
+            font-size: 76px;
+            margin: 25px 0;
+            font-family: 'Alegreya', serif;
+            font-weight: 400;
+        }
+
+        .welcome .text_welcome p {
+            font-size: 22px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .welcome .text_welcome .btn_1 {
+            border: none;
+            padding: 15px 28px;
+            margin-right: 8px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .welcome .text_welcome .btn_learn {
+            background-color: #8e7754;
+            border: 2px solid transparent;
+        }
+
+        .welcome .text_welcome .btn_us {
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+/*end sec welcome*/
+
+
+    .our_baking .text_baking {
+        text-align: center;
+        margin-bottom: 35px;
+        line-height: 2;
+    }
+
+        .our_baking .text_baking h3 {
+            font-size: 30px;
+        }
+
+    .our_baking .container {
+        width: 85%;
+        margin: auto;
+    }
+
+    .our_baking .box_baing .item {
+        width: 33.333333%;
+        float: left;
+        padding: 20px;
+        text-align: center;
+    }
+
+        .our_baking .box_baing .item h4 {
+            font-size: 22px;
+            margin: 20px 0;
+        }
+
+        .our_baking .box_baing .item p {
+            line-height: 1.8;
+        }

@@ -1,0 +1,214 @@
+﻿
+@model EtbnanyWebsite.Models.User
+
+@{
+    ViewBag.Title = "adoption";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etbanany - Adopt An Animal</title>
+    <link rel="icon" href="~/Content/images/dog.png" type="image/x-icon">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="~/Content/home.css">
+    <link rel="stylesheet" href="~/Content/don.css">
+    <script src="~/Content/adoption.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-right: 75px;
+            margin-left: 75px;
+        }
+
+        th, td {
+            text-align: center;
+            padding-left: 35px;
+            padding-right: 35px;
+            padding-top: 15px;
+        }
+
+        button {
+            width: 50%;
+        }
+
+        h3 {
+            font-size: x-large;
+        }
+
+        .image_adopt {
+            width: 190px;
+            height: 190px;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+            .submit-button:hover {
+                background-color: #45a049;
+            }
+
+        #profile,#logout {
+            color: #fff;
+            text-decoration: none;
+            float: right;
+            padding-top: 25px;
+            padding-right: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        #title {
+            display: inline-block;
+        }
+        .item input {
+            height: 40px;
+            background-color: rgb(163, 163, 216);
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function showPets() {
+            document.getElementsByClassName("our_baking")[0].style.display = "block";
+            document.getElementById("table_adopt").style.display = "none";
+            document.getElementById("heading").style.display = "none";
+        }
+
+        function showAdoptionForm() {
+            document.getElementsByClassName("our_baking")[0].style.display = "none";
+            document.getElementById("adoptionForm").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 style="padding-left:125px;" id="title">Hi @Model.firstName, Welcome to Our Animal Shelter</h1>
+        <a id="logout" href="@Url.Action("signin", "Etbnany")">Logout</a>
+        <a id="profile" href="@Url.Action("profile", "Etbnany")">@Model.firstName <i class='bx bxs-user'></i></a>
+    </div>
+    <nav>
+        <div class="container">
+            <ul class="menu">
+                <li><a href="@Url.Action("home", "Etbnany")">Homepage</a></li>
+                <li><a href="@Url.Action("aboutus", "Etbnany")">About Us</a></li>
+                <li><a href="@Url.Action("adoption", "Etbnany")">Adoption</a></li>
+                <li><a href="@Url.Action("donation", "Etbnany")">Donations</a></li>
+                <li><a href="@Url.Action("contactus", "Etbnany")">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1 style="text-align: center">Give a loving home and change a life — adopt an animal today </h1>
+    </main>
+    <section id="heading">
+        <pre style="font-family: 'Times New Roman';">
+                                Creating lifelong happiness by finding the right pet for the right home.
+                            Our main goal is to make sure that every animal goes to the best possible home,and that you are comfortable with the animal you adopt.
+                            The adoption process is designed to create smiles, wags, and purrs.We love helping you find your new best friend and helping them find you.
+        </pre>
+    </section>
+
+    <table id="table_adopt">
+        <tr>
+            <td>
+                <img class="image_adopt" src="~/Content/images/submit.png" alt="submit" width="100">
+            </td>
+            <td>
+                <img class="image_adopt" src="~/Content/images/vetted.png" alt="vetted" width="100">
+            </td>
+            <td>
+                <img class="image_adopt" src="~/Content/images/pair.png" alt="pairing" width="100">
+            </td>
+        </tr>
+        <tr>
+            <th><h3> Submit Your Application</h3></th>
+            <th><h3>Animals Are Fully Vetted</h3></th>
+            <th><h3>Pair Pets with Parents</h3></th>
+        </tr>
+        <tr>
+            <td>Many of the animals we rescue have been neglected or abused. We want to make sure that their new homes are capable of giving them the love they need.</td>
+            <td>All our animals are spayed/neutered, socialized with people and other animals, vaccinated, dewormed, Heartworm/FeLV/FIV tested and microchipped. Your pet will be ready to go!</td>
+            <td>We’ll review your application, ask any follow up questions, and find you a match. Our counselors find the right pet for your family. We match you according to space, time, family situation, size, temperament, and age.</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="padding-top: 30px;padding-bottom: 30px">
+                <button class="button_to" onclick="showPets()">Let's Adopt!</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <section class="our_baking" style="display: none;">
+        <div class="container">
+            <div class="text_baking">
+                <h3>
+                    Adopt me, we both need the love
+                </h3>
+            </div>
+            <div class="box_baing">
+                @foreach (EtbnanyWebsite.Models.Pet p in ViewBag.allPets)
+                {
+                    <div class="item">
+                        <img src="~/Content/images/@p.image" height="320px" alt="">
+                        <h4>@p.name</h4>
+                        <p>Type : @p.type</p>
+                        <p>Age : @p.age</p>
+                        <p>Gender : @p.gender</p>
+                    </div>
+                }
+
+                <div class="clr"></div>
+            </div>
+
+        </div>
+
+        <input class="submit-button" style="width:50%; font-size:larger; display:block; margin: 20px auto;" type="button" value="Adopt" onclick="showAdoptionForm()">
+
+    </section>
+
+
+    <fieldset id="adoptionForm" style="text-align: center; color: black; font-size: 20px;display: none;">
+        <legend><b>How would you take care of this cute pet?</b></legend>
+
+    <form action="@Url.Action("adoption", "Etbnany")" method="post">
+        <label for="message" id="messageLabel">Answer:</label><br>
+        <textarea id="message" name="message" maxlength="200" title="maximum characters allowed are 200" required rows="4" cols="50"></textarea><br><br>
+        @Html.DropDownList("Id", new SelectList(ViewBag.allPets, "Id", "Name"))
+        <input class="submit-button" style="margin:20px auto; display:block;" type="submit" name="name" value="Submit"/>
+    </form> 
+    </fieldset>
+
+    <section>
+        <footer>
+            <div class="container">
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="~/Content/images/fb.png" alt="Facebook"></a>
+                    <a href="https://twitter.com/?lang=en" target="_blank"><img src="~/Content/images/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="~/Content/images/instagram.png" alt="Instagram"></a>
+                    <a href="mailto:abcd@yahoo.com" target="_blank"><img src="~/Content/images/Email.png" alt="Email"></a>
+                </div>
+                <div class="trademarks">
+                    All trademarks are the property of Etbanany Company.
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Etbanany. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,165 @@
+﻿
+@model  EtbnanyWebsite.Models.User
+
+@{
+    ViewBag.Title = "aboutus";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: #4CAF50;
+        }
+
+        table {
+            margin-right: 75px;
+            margin-left: 75px;
+        }
+
+        table, th, td {
+            font-family: "Playfair Display";
+            border-collapse: collapse;
+            padding: 8px;
+        }
+
+        td {
+            padding: 8px; /* Add padding to create space between content and border */
+            margin: 0; /* Remove default margin */
+        }
+
+        p {
+            margin: 0;
+            font-family: "Playfair Display" /* Remove default margin for paragraphs */
+        }
+
+        .services {
+            font-size: 20px;
+            font-family: "Playfair Display";
+        }
+
+        .divs {
+            background-color: #e7e1e1;
+        }
+        #profile,#logout {
+            color: #fff;
+            text-decoration: none;
+            float: right;
+            padding-top: 25px;
+            padding-right: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        #title {
+            display: inline-block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etbanany - About Us</title>
+    <link rel="icon" href="~/Content/images/dog.png" type="image/x-icon">
+    <link rel="stylesheet" href="~/Content/home.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="font-size:17px">
+    <div class="header">
+        <h1 style="padding-left:125px;" id="title">Hi @Model.firstName, Welcome to Our Animal Shelter</h1>
+        <a id="logout" href="@Url.Action("signin", "Etbnany")">Logout</a>
+        <a id="profile" href="@Url.Action("profile", "Etbnany")">@Model.firstName <i class='bx bxs-user'></i></a>
+    </div>
+    <nav>
+        <div class="container">
+            <ul class="menu">
+                <li><a href="@Url.Action("home", "Etbnany")">Homepage</a></li>
+                <li><a href="@Url.Action("aboutus", "Etbnany")">About Us</a></li>
+                <li><a href="@Url.Action("adoption", "Etbnany")">Adoption</a></li>
+                <li><a href="@Url.Action("donation", "Etbnany")">Donations</a></li>
+                <li><a href="@Url.Action("contactus", "Etbnany")">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <main style="text-align: center">
+            <h1 style="font-size: 35px;color: orangered"><p><b>About Us</b></p></h1>
+        </main>
+    </div>
+    <section>
+        <div>
+            <table>
+
+                <tr>
+                    <td rowspan="4" class="divs">
+                        <img src="~/Content/images/about-1.jpg" alt="About Image" width="400px">
+                    </td>
+                    <td colspan="4" class="divs">
+                        <p>Etbanany Animal Shelter is a non-profit organization dedicated to rescuing and providing a safe haven for abandoned, abused, and neglected animals. Our mission is to find loving homes for these animals and promote responsible pet ownership.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="divs">
+                        <p>At Etbanany, we believe that every animal deserves a second chance. We provide medical care, nourishment, and love to animals in need, ensuring they receive the care they deserve. Our dedicated team of staff and volunteers work tirelessly to rehabilitate and rehome these animals, giving them the opportunity for a better life.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="divs">
+                        <p>Since our establishment in 2005, we have successfully placed thousands of animals in loving homes. We also actively engage with the community through educational programs, adoption events, and collaborations with other animal welfare organizations.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="divs">
+                        <p>Join us in making a difference in the lives of these animals. Whether you're looking to adopt, volunteer, or donate, your support is invaluable in helping us continue our vital work.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="color: orangered"><b style="font-size: 35px"> why choose Us?</b></td>
+
+                    <td rowspan="5" colspan="4" style="text-align: right; vertical-align: top;">
+                        <img src="~/Content/images/feature.jpg" alt="..." width="300px" height="300px">
+                </tr>
+                <tr>
+                    <td colspan="3"> <strong><span style="color: red;">Special Care</span> on Pets</strong> </td>
+
+                </tr>
+                <tr>
+                    <td colspan="3"><p>Provide proper socialization and mental stimulation to ensure their emotional well-being, and establish a consistent routine of exercise and balanced nutrition for their physical health. </p></td>
+
+                </tr>
+                <tr>
+                    <td colspan="2" class="services">
+                        <i class="fa-solid fa-shield-dog"></i> Best In Industry
+                    </td>
+                    <td class="services"> <i class="fa-solid fa-truck-medical"></i> Emergency Services</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="services"> <i class="fa-solid fa-user-doctor"></i> Special Care</td>
+                    <td class="services"> <i class="fa-solid fa-phone"></i> Customer Service</td>
+
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#" target="_blank"><img src="~/Content/images/fb.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/twitter.png" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="trademarks">
+                All trademarks are the property of Etbanany Company.
+            </div>
+            <div class="copyright">
+                &copy; 2023 Etbanany. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

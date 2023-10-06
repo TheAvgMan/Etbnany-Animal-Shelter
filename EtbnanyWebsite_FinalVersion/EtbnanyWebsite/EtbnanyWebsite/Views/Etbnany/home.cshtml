@@ -1,0 +1,138 @@
+﻿
+@model  EtbnanyWebsite.Models.User
+
+@{
+    ViewBag.Title = "home";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etbanany</title>
+    <link rel="icon" href="~/Content/images/dog.png" type="image/x-icon">
+    <link href="~/Content/home.css" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="~/Content/homePage.js"></script>
+    <style>
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+
+        }
+
+        .marquee-content {
+            display: block;
+            animation: marquee 50s linear infinite;
+        }
+
+        @@keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #profile, #logout {
+            color: #fff;
+            text-decoration: none;
+            float: right;
+            padding-top: 25px;
+            padding-right: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+
+        #title {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body style="font-size:17px">
+    <div class="header">
+        <h1 style="padding-left:125px;" id="title">Hi @Model.firstName, Welcome to Our Animal Shelter</h1>
+        <a id="logout" href="@Url.Action("signin", "Etbnany")">Logout</a>
+        <a id="profile" href="@Url.Action("profile", "Etbnany")">@Model.firstName <i class='bx bxs-user'></i></a>
+    </div>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="#">Homepage</a></li>
+            <li><a href="@Url.Action("aboutus", "Etbnany")">About Us</a></li>
+            <li><a href="@Url.Action("adoption", "Etbnany")">Adoption</a></li>
+            <li><a href="@Url.Action("donation", "Etbnany")">Donations</a></li>
+            <li><a href="@Url.Action("contactus", "Etbnany")">Contact Us</a></li>
+        </ul>
+        <div class="slideshow-container">
+            <div class="slides">
+                <img class="slide-img" src="~/Content/images/mainPage.png" alt="Cover Photo 1" style="width: 100%; height: 300px;">
+            </div>
+            <div class="slides">
+                <img class="slide-img" src="~/Content/images/cover-2.jpg" alt="Cover Photo 2" style="width: 100%; height: 300px">
+            </div>
+            @*Add more slides as needed*@
+            <div class="slides">
+                <img class="slide-img" src="~/Content/images/cover-3.jpg" alt="Cover Photo 3" style="width: 100%; height: 300px">
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+        <div class="content">
+            <h2>Welcome to Our Animal Shelter</h2>
+            <p>We are dedicated to providing a loving and caring environment for animals in need. Explore our website to learn more about our mission, volunteer opportunities, adoption process, and upcoming events.</p>
+            <p>Join us in making a difference in the lives of animals.</p>
+        </div>
+        <div class="marquee-container">
+            <a href="@Url.Action("adoption", "Etbnany")" class="marquee-content">
+                <img src="~/Content/images/dog.png" alt="Adoption Marquee" style="height: 100px; width: 100px;">
+            </a>
+        </div>
+
+        <section class="places-section">
+            <div class="places-info">
+                <h3>Our Places</h3>
+                <p>We have several locations where you can visit and interact with our animals.</p>
+                <img src="~/Content/images/shelterhouse.jpg" alt="shelter house" width="500px" height="300px">
+            </div>
+
+            <aside>
+                <mark style=" background-color: #f6f3ea;">Click on the location and it will Re-direct you to the Maps</mark>
+                <ul>
+                    <li><a style="color: #246162" href="https://www.google.com/maps" target="_blank"><b>Maadi</b></a></li>
+
+                    <li><a style="color: #246162" href="https://www.google.com/maps" target="_blank"><b>Mokkatam</b></a></li>
+
+
+                    <li><a style="color: #246162" href="https://www.google.com/maps" target="_blank"><b>Sherouk</b></a></li>
+
+                    <li><a style="color: #246162" href="https://www.google.com/maps" target="_blank"><b>6<sup>th</sup> october</b></a></li>
+
+                </ul>
+            </aside>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#" target="_blank"><img src="~/Content/images/fb.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/twitter.png" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="~/Content/images/instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="trademarks">
+                All trademarks are the property of Etbanany Company.
+            </div>
+            <div class="copyright">
+                &copy; 2023 Etbanany. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
